@@ -1,0 +1,31 @@
+{
+  "name": "ec2-run-instance-lambda",
+  "version": "1.0.0",
+  "description": "AWS Lambda function that runs an EC2 instance with parameters coming from an HTTP request",
+  "main": "index.js",
+  "scripts": {
+    "test": "exit 0;"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/renatoargh/ec2-run-instance-lambda.git"
+  },
+  "keywords": [
+    "ec2",
+    "run-instance",
+    "lambda",
+    "aws"
+  ],
+  "author": "Renato Gama <renato@gammasoft.com.br>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/renatoargh/ec2-run-instance-lambda/issues"
+  },
+  "homepage": "https://github.com/renatoargh/ec2-run-instance-lambda",
+  "devDependencies": {
+    "aws-sdk": "^2.1.49"
+  },
+  "dependencies": {
+    "async": "^1.4.2"
+  }
+}
