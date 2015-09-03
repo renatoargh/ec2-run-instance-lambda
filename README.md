@@ -10,11 +10,9 @@ npm install --save ec2-run-instance-lambda
 ### Usage
 
 ```javascript
-'use strict';
-
 var ec2RunInstance = require('ec2-run-instance');
 
-module.exports.handler = ec2RunInstance({
+module.exports.handler = ec2RunInstance.newHandler({
   region: 'sa-east-1'
 });
 ```
