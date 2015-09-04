@@ -1,6 +1,6 @@
 {
   "name": "ec2-run-instance-lambda",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "AWS Lambda function that runs an EC2 instance with parameters coming from an HTTP request",
   "main": "index.js",
   "scripts": {

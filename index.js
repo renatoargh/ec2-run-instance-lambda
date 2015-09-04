@@ -4,7 +4,7 @@ var Aws = require('aws-sdk'),
   async = require('async');
 
 function newHandler(ec2parameters) {
-  ec2 = new Aws.EC2(ec2parameters);
+  var ec2 = new Aws.EC2(ec2parameters);
 
   return function handler(event, context) {
     var instancesCreated = [];
@@ -25,13 +25,18 @@ function newHandler(ec2parameters) {
     }
 
     function createTags(reservations, cb) {
-      instancesCreated = reservations.Instances.map(function(reservation) {
+      if(!event.tags || !event.tags.length) {
+        return cb();
+      }
+
+      var reservedInstances = reservations.Instances;
+      instancesCreated = reservedInstances.map(function(reservation) {
         return reservation.InstanceId;
       });
 
       ec2.createTags({
         Resources: instancesCreated,
-        Tags: event.tags && event.tags.map(function(tag) {
+        Tags: event.tags.map(function(tag) {
             return {
               Key: tag.key,
               Value: tag.value
